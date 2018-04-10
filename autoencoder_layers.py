@@ -4,8 +4,17 @@ from keras.layers.convolutional import Convolution2D, UpSampling2D
 from keras.layers.core import Dense, Layer
 from theano import tensor as T
 from theano.sandbox.cuda import dnn
+import seaborn as sns
+import matplotlib.pyplot as plt
 
+g = sns.FacetGrid(df, row="g", hue="g", aspect=8, size=1.2, palette=pal)
+g.savefig()
+g.fig.update_from()
+g.fig.subplots_adjust(hspace=-.25)
+g.fig.figimage()
 
+accFig = plt.figure(figsize=(7,7))
+accFig.savefig()
 class SumLayer(Layer):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
